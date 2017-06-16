@@ -1,5 +1,5 @@
 FROM        debian:jessie
-MAINTAINER  Kotaimen <kotaimen.c@gmail.com>
+MAINTAINER  Antoine Finkelstein <antoine@hunter.io>
 
 ENV         DEBIAN_FRONTEND noninteractive
 
