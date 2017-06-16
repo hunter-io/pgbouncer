@@ -28,14 +28,3 @@ By default, pgbouncer writes logs to:
 And listens on:
 
     0.0.0.0:6432
-
-Docker-compose:
-
-    pgbouncer:
-      image: firmapi/pgbouncer
-      ports:
-        - "6432:6432"
-      volumes:
-        - ./etc/pgbouncer:/etc/pgbouncer:ro
-        - ./log/postgresql:/var/log/postgresql:rw
-      restart: always
