@@ -1,15 +1,9 @@
-FROM        debian:jessie
-MAINTAINER  Antoine Finkelstein <antoine@hunter.io>
+FROM ubuntu:16.04
+MAINTAINER Antoine Finkelstein <antoine@hunter.io>
 
-ENV         DEBIAN_FRONTEND noninteractive
+RUN apt-get update && apt-get install -y pgbouncer
 
-RUN         set -x \
-            && apt-get -qq update \
-            && apt-get install -yq --no-install-recommends pgbouncer \
-            && apt-get purge -y --auto-remove \
-            && rm -rf /var/lib/apt/lists/*
+ADD entrypoint.sh ./
 
-ADD         entrypoint.sh ./
-
-EXPOSE      6432
-ENTRYPOINT  ["./entrypoint.sh"]
+EXPOSE 6432
+ENTRYPOINT ["./entrypoint.sh"]
