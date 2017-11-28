@@ -8,6 +8,7 @@ PG_USER=postgres
 mkdir -p ${PG_LOG}
 chmod -R 755 ${PG_LOG}
 chown -R ${PG_USER}:${PG_USER} ${PG_LOG}
+chown -R ${PG_USER}:${PG_USER} /var/run/postgresql
 
 echo "Starting pgbouncer..."
-exec pgbouncer -q -u ${PG_USER} $PG_CONFIG
+exec pgbouncer -u ${PG_USER} $PG_CONFIG
